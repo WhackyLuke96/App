@@ -1,0 +1,22 @@
+{
+  "name": "app-ui",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "build:prod": "npx webpack --mode production",
+    "build:dev": "npx webpack --mode development",
+    "release": "aws s3 sync ./dist s3://${APP_BUCKET}/ --acl public-read",
+    "deploy": "npm run build:dev && npm run release"
+  },
+  "author": "",
+  "license": "ISC",
+  "devDependencies": {
+    "webpack": "^5.38.1",
+    "webpack-cli": "^4.7.2"
+  },
+  "dependencies": {
+    "aws-amplify": "^4.1.0",
+    "aws-sdk": "^2.927.0"
+  }
+}
